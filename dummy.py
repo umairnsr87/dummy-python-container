@@ -15,6 +15,26 @@ logging.basicConfig(
 app = Flask(__name__)
 
 
+
+@app.route('', methods=['GET'])
+def landing():
+    return f"Application is running successfully!"
+
+
+@app.route('env_check', methods=['GET'])
+def env_check():
+    env_dict = {'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.environ.get('RDS_DB_NAME',None),
+            'USER': os.environ.get('RDS_USERNAME',None),
+            'PASSWORD': os.environ.get('RDS_PASSWORD',None),
+            'HOST': os.environ.get('RDS_HOSTNAME',None),
+            'PORT': os.environ.get('RDS_PORT',None),
+        }}
+    return f"{env_dict} fetched successsfully!"
+
+
+
 @app.route('/dummy', methods=['GET'])
 def dummy():
     firstname = request.args.get("firstname")
