@@ -16,12 +16,12 @@ app = Flask(__name__)
 
 
 
-@app.route('', methods=['GET'])
+@app.route('/', methods=['GET'])
 def landing():
     return f"Application is running successfully!"
 
 
-@app.route('env_check', methods=['GET'])
+@app.route('/env_check', methods=['GET'])
 def env_check():
     env_dict = {'default': {
             'ENGINE': 'django.db.backends.mysql',
