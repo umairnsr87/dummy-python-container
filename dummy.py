@@ -18,7 +18,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def landing():
-    return f"Application is running successfully!"
+    return f"Application is running successfully on depX!"
 
 
 @app.route('/env_check', methods=['GET'])
